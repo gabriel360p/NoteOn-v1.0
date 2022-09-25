@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>Nova Tarefa</title>
+</head>
+<body>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a href="#">Home</a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="#">Library</a>
+					</li>
+					<li class="breadcrumb-item active">
+						Data
+					</li>
+				</ol>
+			</nav>
+
+			<form role="form" method="POST" action="{% url 'notation:edit' work.id%}">
+				{% csrf_token %} 
+				<div class="form-group">
+					<label>
+						Titulo
+					</label>
+					<input type="text" name="titulo" class="form-control" placeholder="Titulo" required value="{{work.title}}"/>
+				</div>
+				<div class="form-group">
+					<label>
+						Subitulo
+					</label>
+					<input type="text" required name="subtitulo" class="form-control" placeholder="Subtitulo" value="{{work.subtitle}}" />
+				</div>
+
+
+				<div class="form-group">
+					<label>
+						Anotação
+					</label>
+					<textarea type="text" name="texto" value="{{work.work}}" class="form-control" spellcheck="true" placeholder="Anotação" required name="texto"> </textarea>
+				</div>
+
+				<input type="submit" class="btn btn-outline-success text-align" value="Salvar">
+			</form>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
